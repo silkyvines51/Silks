@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SILKY'S AWESOME WEBSITE</title>
+  <meta name="description" content="Landing page sederhana dan modern">
+  <style>
+    /* Retro Desktop Background */
+    body {
+      background-color: maroon;
+      color: black;
+      font-family: "Courier New", Courier, monospace;
+      padding: 20px;
+    }
+
+    /* Retro Window Box */
+    .navbar, main {
+      background-color: #d4d0c8;
+      border: 3px solid #ffffff;
+      border-right-color: #404040;
+      border-bottom-color: #404040;
+      box-shadow: 4px 4px 0px #000000;
+      max-width: 650px;
+      margin: 0 auto 20px auto;
+      padding: 15px;
+    }
+
+    /* Maroon Window Title Bar */
+    .logo {
+      display: block;
+      background-color: maroon;
+      color: white;
+      font-size: 24px !important;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 6px 10px;
+      margin-bottom: 12px;
+      border: 2px inset #ffffff;
+    }
+
+    /* Retro Menu Buttons */
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a, .arrow-btn {
+      background-color: #e4e4e4;
+      color: black;
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 2px solid #ffffff;
+      border-right-color: #404040;
+      border-bottom-color: #404040;
+      font-weight: bold;
+      font-family: "Courier New", Courier, monospace;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover, .arrow-btn:hover {
+      background-color: maroon;
+      color: white;
+    }
+
+    /* Retro Tag & Image Frame */
+    .Badge {
+      background-color: #f8d7da;
+      color: maroon;
+      border: 1px solid maroon;
+      padding: 3px 8px;
+      font-weight: bold;
+    }
+
+    .gallery-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 15px 0;
+    }
+
+    img {
+      border: 3px inset #808080;
+      background-color: white;
+      padding: 4px;
+      display: block;
+    }
+
+    /* Retro Inner Text Box */
+    .intro-box {
+      background-color: #ffffff;
+      border: 2px inset #808080;
+      padding: 15px;
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#Home page" onclick="openTab('home-section')" class="logo" style="font-size: 40px;">Silky's Website<span>.</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#Home page" onclick="openTab('home-section')">Home page</a></li>
+          <li><a href="#Feature" onclick="openTab('feature-section')">Feature</a></li>
+          <li><a href="#About" onclick="openTab('about-section')">About</a></li>
+          <li><a href="#Contact" onclick="openTab('contact-section')" class="btn btn-small">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME SECTION -->
+    <section id="home-section" class="Home page">
+      <div class="container hero-inner">
+        <span class="Badge">New &amp; Simple</span>
+        <h1>MY WEBSITE IS <em> COOL</em></h1>
+        <h1> I FRICKIBG LOVE <em> JALAPENOS </em></h1>
+
+        <div class="gallery-box">
+          <button class="arrow-btn" onclick="changePic(-1)">&lt;</button>
+          <img id="slide-img" src="12.jfif" alt="Gallery Picture" width="300">
+          <button class="arrow-btn" onclick="changePic(1)">&gt;</button>
+        </div>
+
+        <p>Welcome to my website!</p>
+      </div>
+    </section>
+
+    <!-- FEATURE SECTION -->
+    <section id="feature-section" style="display: none;">
+      <span class="Badge">Feature</span>
+      <h1>FEATURE BY SILKYYYY</h1>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about-section" style="display: none;">
+      <span class="Badge">About Me</span>
+      <h1>Hello, I'm Silky!</h1>
+      <div class="intro-box">
+        <p><strong>Name:</strong> Silky Vines</p>
+        <p><strong>Hobbies:</strong> I LOVE DRAWING, MUSIC, FOOD, EATING, AND MORE</p>
+        <p>WELCOME HOOMANS IT IS I SILKY NICE TO MEET YA WANNA BE FRIENDS???!!! ITS IN MY CONTACTS GO AHEAD LETS BWE FRIENDS HEHEHE</p>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact-section" style="display: none;">
+      <span class="Badge">Contact</span>
+      <h1>Contact Silky</h1>
+      <div class="intro-box">
+        <p><strong>Discord:</strong> _silkyvines_</p>
+        <p><strong>Instagram:</strong> silkympp</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const pictures = [
+      "12.jfif",
+      "13.jfif",
+      "14.jfif"
+    ];
+
+    let currentIndex = 0;
+
+    function changePic(step) {
+      currentIndex = (currentIndex + step + pictures.length) % pictures.length;
+      document.getElementById("slide-img").src = pictures[currentIndex];
+    }
+
+    function openTab(sectionId) {
+      document.getElementById("home-section").style.display = "none";
+      document.getElementById("feature-section").style.display = "none";
+      document.getElementById("about-section").style.display = "none";
+      document.getElementById("contact-section").style.display = "none";
+      document.getElementById(sectionId).style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
